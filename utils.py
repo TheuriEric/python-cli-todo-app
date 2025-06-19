@@ -68,7 +68,7 @@ def load_tasks():
         print(f"Task Id: {task['id']}\nTitle: {task['title']}\nDescription: {task['description']}\nDue date: {task['due_date']}\nStatus: {task['completed']}\n")
     
     return task_list
-
+#Function to delete tasks by id
 def delete_task():
     id_list = None
     load_tasks()
@@ -80,11 +80,11 @@ def delete_task():
         delete_task()
 
     print("Task deleted")
-
+#Function to edit the status to either 'complete' or 'incomplete'
 def edit_status():
-    task_status = "Complete"
-    print("Task status has been edited :)")
-
+    print("To change status, I will preview all the tasks and you choose which one to modify")
+    status_modified = int(input(f"{load_tasks()}\n***** Choose the task using it's id. \n > "))
+#Function to change the status of a task to either 
 def status_marker():
     print("The status has been marked")
 ###Id generation and input validation logic is handled here
