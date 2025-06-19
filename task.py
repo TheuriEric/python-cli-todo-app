@@ -15,4 +15,3 @@ class Task():
     def __str__(self):
         return f"{self.id} {self.title} {self.description} {self.due_date} {self.completed}"
     
-    
