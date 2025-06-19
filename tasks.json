@@ -1,0 +1,13 @@
+[{
+    "id": 1,
+    "title": "Finish Python Project",
+    "description": "DirectEd Python CLI project",
+    "due_date": "2025-06-30",
+    "completed": "Incomplete"
+},{
+    "id": 2,
+    "title": "Visit Dr.Juma",
+    "description": "Eye checkup",
+    "due_date": "2025-06-30",
+    "completed": "Incomplete"
+}]

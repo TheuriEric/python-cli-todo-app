@@ -1,11 +1,11 @@
 import time
 import json
+import os
 from task import Task
 from datetime import datetime
 
-
+###Function to add tasks
 def add_tasks():
-    #global task
     print("Let's add your task :)")
     time.sleep(0.5)
     def task_details():
@@ -35,15 +35,39 @@ def add_tasks():
         task_due_date = due_date_checker()
         task_status = "Incomplete"
         task = Task(task_id,task_title,task_description,task_due_date,task_status).__dict__
-        with open("tasks.json", "a") as tasks_file:
-            json.dump(task, tasks_file,indent=4,default=str)
-        tasks_file.close()
+        #File section
+        filename = "tasks.json"
+        if os.path.exists(filename) and os.path.getsize(filename) > 0:
+            with open(filename, "r") as tasks_file:
+                try:
+                    task_list = json.load(file)
+                except json.JSONDecodeError:
+                    print("Corrupted JSON file.")
+                    task_list = []
+        else:
+                task_list = []
+        
+        task_list.append(task)
+        with open(filename, "w") as file:
+            json.dump(task_list,tasks_file, indent=4)
+                
+
+        
         print("Successfully created task ")
     task_details()
 
-
+###Function to show all tasks
 def load_tasks():
     print("Here are all the tasks")
+    time.sleep(0.3)
+    with open("tasks.json", "r") as tasks_file:
+        task_list = json.load(tasks_file)
+
+    #We have already loaded the whole json file, now we want to read it in a well formatted way
+    for task in task_list:
+        print(f"Task Id: {task['id']}\nTitle: {task['title']}\nDescription: {task['description']}\nDue date: {task['due_date']}\nStatus: {task['completed']}\n")
+    
+    return task_list
 
 def delete_task():
     id_list = None
