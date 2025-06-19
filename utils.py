@@ -4,7 +4,7 @@ import os
 from task import Task
 from datetime import datetime
 
-###Function to add tasks
+###Function to add tasks###Complete
 def add_tasks():
     print("Let's add your task :)")
     time.sleep(0.5)
@@ -58,7 +58,9 @@ def add_tasks():
         print("Successfully created task ")
     task_details()
 
-###Function to show all tasks
+
+
+###Function to show all tasks #Complete
 def load_tasks():
     
     print("Here are all the tasks")
@@ -72,19 +74,37 @@ def load_tasks():
     
     return task_list
 
+
+
+
 #Function to delete tasks by id
 def delete_task():
-    id_list = None
+    new_tasks_list = []
     load_tasks()
-    deleted_task_id = int(input("Enter the task id to delete\n>> "))
-    if deleted_task_id in id_list:
-        pass
-    else:
-        print("Please enter a valid task id!")
-        delete_task()
+    deleted_task = int(input("Enter the task id for the task to be deleted \n>"))
+    with open("tasks.json","r") as tasks_list:
+        tasks = json.load(tasks_list)
+    
+    for task in tasks:
+        if task['id'] != deleted_task:
+            new_tasks_list.append(task)
 
-    print("Task deleted")
-#Function to edit the status to either 'complete' or 'incomplete'
+    with open("tasks.json","w") as tasks_list:
+        json.dump(new_tasks_list,tasks_list,indent=4)
+        
+
+    print(f"Task: {task['title']} deleted successfully")
+
+    
+    
+
+    
+
+
+
+
+
+#Function to edit the status to either 'complete' or 'incomplete' ###Complete
 def edit_status():
     
     tasks_id = []
@@ -123,15 +143,7 @@ def edit_status():
     else:
         print(f"Sorry! The task by the id {status_modified} does not exist) :(")
 
-    
-    
 
-    
-       
-
-#Function to change the status of a task to either 
-def status_marker():
-    print("The status has been marked")
 ###Id generation and input validation logic is handled here
 ##Write tests for these functions using unittest in test_utils.py
 
