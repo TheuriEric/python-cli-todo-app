@@ -5,10 +5,10 @@ In this app, you can **add**, **Delete**,**Preview** and **edit** tasks from a t
 
 ##Installation
 Clone the repository from github by running:
-    git clone https://github.com/TheuriEric/cli-to-do-app.git
+    git clone https://github.com/TheuriEric/python-cli-todo-app
 
 ##Requirements
-Make sure you are using python 3.6+
+Make sure you are using python 3.10+
 
 ##Running the program
 In the command line interface, run :

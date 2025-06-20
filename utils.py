@@ -7,26 +7,25 @@ from datetime import datetime
 
 ###Checks the user option input##Completed
 def choice_valuator(choice):
-        
-        if choice not in [1,2,3,4,5]:
-            print("Please select an option from 1 to 5 ")
-            time.sleep(1)
-            return
+    if choice not in [1,2,3,4,5]:
+        print("Please select an option from 1 to 5 ")
+        time.sleep(1)
+        return
 
-        if choice == 1: #Adds a new task
-            add_tasks()
-        elif choice == 2: #Deletes a task by ID
-            delete_task()
-        elif choice == 3: #Edits tasks e.g statuses
-            edit_status()
-        elif choice == 4: #List all tasks with statuses
-            load_tasks()
-        elif choice == 5:
-            sys.exit("Bye...")
-         
+    if choice == 1: #Adds a new task
+        add_tasks()
+    elif choice == 2: #Deletes a task by ID
+        delete_task()
+    elif choice == 3: #Edits tasks e.g statuses
+        edit_status()
+    elif choice == 4: #List all tasks with statuses
+        load_tasks()
+    elif choice == 5:
+        sys.exit("Bye...")
+
 
 ###Function to add tasks###Complete
-def add_tasks():
+def add_tasks(): 
     print("Let's add your task :)")
     time.sleep(0.5)
     def task_details():
@@ -76,15 +75,12 @@ def add_tasks():
                 
 
         
-        print("Successfully created task ")
+        print("Successfully created task")
     task_details()
-
-
 
 ###Function to show all tasks #Complete
 def load_tasks():
-    
-    print("Here are all the tasks")
+    print("Here are all the tasks:\n")
     time.sleep(0.3)
     with open("tasks.json", "r") as tasks_file:
         task_list = json.load(tasks_file)
@@ -94,9 +90,6 @@ def load_tasks():
         print(f"Task Id: {task['id']}\nTitle: {task['title']}\nDescription: {task['description']}\nDue date: {task['due_date']}\nStatus: {task['completed']}\n")
     
     return task_list
-
-
-
 
 #Function to delete tasks by id
 def delete_task():
@@ -115,15 +108,6 @@ def delete_task():
         
 
     print(f"Task: {task['title']} deleted successfully")
-
-    
-    
-
-    
-
-
-
-
 
 #Function to edit the status to either 'complete' or 'incomplete' ###Complete
 def edit_status():
@@ -164,9 +148,9 @@ def edit_status():
     else:
         print(f"Sorry! The task by the id {status_modified} does not exist) :(")
 
-
 ###Id generation and input validation logic is handled here
 ##Write tests for these functions using unittest in test_utils.py
+
 
 if __name__ == "__main__":
     edit_status()
