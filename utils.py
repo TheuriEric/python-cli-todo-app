@@ -1,8 +1,29 @@
 import time
+import sys
 import json
 import os
 from task import Task
 from datetime import datetime
+
+###Checks the user option input##Completed
+def choice_valuator(choice):
+        
+        if choice not in [1,2,3,4,5]:
+            print("Please select an option from 1 to 5 ")
+            time.sleep(1)
+            return
+
+        if choice == 1: #Adds a new task
+            add_tasks()
+        elif choice == 2: #Deletes a task by ID
+            delete_task()
+        elif choice == 3: #Edits tasks e.g statuses
+            edit_status()
+        elif choice == 4: #List all tasks with statuses
+            load_tasks()
+        elif choice == 5:
+            sys.exit("Bye...")
+         
 
 ###Function to add tasks###Complete
 def add_tasks():

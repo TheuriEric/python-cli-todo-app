@@ -9,8 +9,6 @@ class Task():
     def mark_complete(self):
         pass
 
-    def to_dict(self):
-        pass
 
     def __str__(self):
         return f"{self.id} {self.title} {self.description} {self.due_date} {self.completed}"
