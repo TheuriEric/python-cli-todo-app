@@ -22,10 +22,17 @@ import utils
 
 def main():
     while True:
+        try:
 
-        choice = int(input("*****CLI TO-DO APP*****\n\nPlease select an option:\n    1. Add a task\n    2. Delete a task\n    3. Change task status\n    4. Show tasks\n    5. Quit\n*****-----*****\n >>Option: "))
+            choice = int(input("*****CLI TO-DO APP*****\n\nPlease select an option:\n    1. Add a task\n    2. Delete a task\n    3. Change task status\n    4. Show tasks\n    5. Quit\n*****-----*****\n >>Option: "))
+            
+            utils.choice_valuator(choice)
+        except ValueError:
+            print("\n\nPlease enter a number from 1 to 5 :(")
+        except KeyboardInterrupt:
+            print("\n\nQuiting program...")
+            exit(0)
         
-        utils.choice_valuator(choice)
 
 main()
 
