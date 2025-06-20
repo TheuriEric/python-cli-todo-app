@@ -1,15 +1,8 @@
 [
     {
-        "id": 6,
-        "title": "6",
-        "description": "6",
-        "due_date": "None",
-        "completed": "Incomplete"
-    },
-    {
-        "id": 1,
-        "title": "1",
-        "description": "1",
+        "id": 2,
+        "title": "3",
+        "description": "3",
         "due_date": "None",
         "completed": "Incomplete"
     }

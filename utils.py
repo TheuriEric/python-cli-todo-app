@@ -94,20 +94,28 @@ def load_tasks():
 #Function to delete tasks by id
 def delete_task():
     new_tasks_list = []
+    initial_list = []
     load_tasks()
     deleted_task = int(input("Enter the task id for the task to be deleted \n>"))
     with open("tasks.json","r") as tasks_list:
         tasks = json.load(tasks_list)
     
     for task in tasks:
-        if task['id'] != deleted_task:
-            new_tasks_list.append(task)
+        initial_list.append(task['id'])
+    if delete_task not in initial_list:
+        print("Sorry, there is no task by that Id")
+        new_tasks_list.append(task)
+    else:
+        for task in tasks:
+            if task['id'] != deleted_task:
+                new_tasks_list.append(task)
+        print(f"Task: {task['title']} deleted successfully")
 
     with open("tasks.json","w") as tasks_list:
         json.dump(new_tasks_list,tasks_list,indent=4)
         
 
-    print(f"Task: {task['title']} deleted successfully")
+    
 
 #Function to edit the status to either 'complete' or 'incomplete' ###Complete
 def edit_status():

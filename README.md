@@ -22,3 +22,4 @@ From the Menu, you have 5 options to choose from:
 4. Show tasks - List all tasks
 5. Quit - Exits the program
 
+##Sample output
